@@ -40,6 +40,8 @@ public class MavenprojectNegativos {
             
         }
         
+        scanner.close();
+        
     }
 }
  
