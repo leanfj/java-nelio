@@ -60,8 +60,8 @@ public class MavenprojectAlturas {
         }
 
         System.out.println("---Pessoas menores de 16 anos---");
-        double porcentagem = (quantidadePessoasMenorde16 * 100) / listaPessoas.length;
-        System.out.printf("Porcentagem de pessoas menor: %.2f %n", porcentagem);
+        double porcentagem = (quantidadePessoasMenorde16 * 100.0) / listaPessoas.length;
+        System.out.printf("Porcentagem de pessoas menor: %.1f%%%n", porcentagem);
 
         System.out.println("Pessao com menos de 16 anos");
         for (int i = 0; i < listaPessoas.length; i++) {
