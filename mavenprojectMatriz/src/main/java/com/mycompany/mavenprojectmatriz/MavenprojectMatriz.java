@@ -20,9 +20,9 @@ public class MavenprojectMatriz {
         
         int[][] matriz = new int[n][n];
         
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < matriz.length; i++) {
 
-            for(int j = 0; j < n; j++) {
+            for(int j = 0; j < matriz[i].length; j++) {
                 matriz[i][j] = scanner.nextInt();
             }
         }
@@ -31,8 +31,8 @@ public class MavenprojectMatriz {
         
         int[] diagonalPrincipal = new int[3];
         
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
                 if(i == j) {
                     diagonalPrincipal[i] = matriz[i][j];
                 }
@@ -47,8 +47,8 @@ public class MavenprojectMatriz {
         
         int quantidadeNegativos = 0;
         
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < n; j++) {
+        for(int i = 0; i < matriz.length; i++) {
+            for(int j = 0; j < matriz[i].length; j++) {
                 if(matriz[i][j] < 0) {
                     quantidadeNegativos++;
                 }
