@@ -7,6 +7,7 @@ package com.mycompany.mavenprojectdatetime;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -40,15 +41,28 @@ public class MavenprojectDateTime {
 
         System.out.println("Instant D06 " + d06);
 
-        // Instant d07 = Instant.parse("2020-02-29T00:00:00-05:00");
+        Instant d07 = Instant.parse("2020-02-29T01:23:06Z");
 
-        //System.out.println("Instant D07 " + d07);
+        System.out.println("Instant D07 " + d07);
         // So funciona no java 17 pra cima
+        // A utilização de um format para o instant necessita de entrar com a definicação do time zone
+        
+        DateTimeFormatter formato3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+        System.out.println("d07 " + formato3.format(d07));
         
         DateTimeFormatter formato01 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate d08 = LocalDate.parse("20/07/2022", formato01);
         
         System.out.println("d08 "  + d08);
+        
+        System.out.println("d04 " + d04.format(formato01));
+        System.out.println("d04 " + formato01.format(d04));
+        
+        DateTimeFormatter format04 = DateTimeFormatter.ISO_DATE_TIME;
+        DateTimeFormatter format05 = DateTimeFormatter.ISO_INSTANT;
+        
+        System.out.println("d05 " + d05.format(format04)); 
+        
+        System.out.println("d06 " + format05.format(d06));
     }
 }
- 
