@@ -10,6 +10,6 @@ package entidades.enums;
  */
 public enum LevelTrabalhador {
     JUNIOR,
-    MD_LEVEL,
+    MID_LEVEL,
     SENIOR;
 }
