@@ -19,7 +19,7 @@ public class MavenprojectLocalDate {
         LocalDate d04 = LocalDate.parse("2022-07-20");
         LocalDateTime d05 = LocalDateTime.parse("2022-07-20T01:30:25");
         Instant d06 = Instant.parse("2022-07-20T01:30:25Z");
-
+        
         LocalDate r01 = LocalDate.ofInstant(d06, ZoneId.systemDefault());
         LocalDate r02 = LocalDate.ofInstant(d06, ZoneId.of("Portugal"));
         LocalDateTime r03 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault());
