@@ -8,6 +8,8 @@ import entities.Circulo;
 import entities.Forma;
 import entities.Retangulo;
 import entities.enums.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,11 +18,18 @@ import entities.enums.Color;
 public class MavenprojectFormas {
 
     public static void main(String[] args) {
+
+        List<Forma> lista = new ArrayList<>();
+
         Forma retangulo = new Retangulo(2.0, 1.0, Color.VERDE);
         Forma circulo = new Circulo(2.0, Color.AZUL);
 
-        System.out.printf("Area retangulo: %.2f \n", retangulo.area());
-        System.out.printf("Area circulo: %.2f", circulo.area());
+        lista.add(retangulo);
+        lista.add(circulo);
+
+        for (Forma forma : lista) {
+            System.out.printf("Area: %.2f \n", forma.area());
+        }
 
     }
 }
