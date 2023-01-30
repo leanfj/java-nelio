@@ -13,14 +13,20 @@ import boardgame.Piece;
  */
 public class ChessPiece extends Piece {
     private Color color;
+    private char code;
 
-    public ChessPiece(Color color, Board board) {
+    public ChessPiece(Color color, Board board, char code) {
         super(board);
         this.color = color;
+        this.code = code;
     }
 
     public Color getColor() {
         return color;
+    }
+
+    public char getCode() {
+        return code;
     }
     
 }
