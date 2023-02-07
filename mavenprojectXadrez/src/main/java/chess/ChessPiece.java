@@ -28,5 +28,11 @@ public class ChessPiece extends Piece {
     public char getCode() {
         return code;
     }
+
+    @Override
+    public String toString() {
+        return "" + code;
+    }
+    
     
 }
