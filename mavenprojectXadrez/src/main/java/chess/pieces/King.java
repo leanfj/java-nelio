@@ -17,5 +17,11 @@ public class King extends ChessPiece{
     public King(Board board, Color color, char code) {
         super(color, board, code);
     }
+
+    @Override
+    public boolean[][] possibleMoves() {
+        boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+        return mat;
+    }
     
 }
