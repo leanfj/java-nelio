@@ -28,7 +28,10 @@ public class MavenprojectXadrez {
                 System.out.println();
                 System.out.println("Source: ");
                 ChessPosition source = UI.readChessPosition(scanner);
-
+                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);
+                
                 System.out.println();
                 System.out.println("Target: ");
                 ChessPosition target = UI.readChessPosition(scanner);
