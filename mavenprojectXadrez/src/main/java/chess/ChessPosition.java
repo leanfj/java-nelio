@@ -24,15 +24,15 @@ public class ChessPosition {
     }
 
     public char getColumn() {
-        return column;
+        return this.column;
     }
 
     public int getRow() {
-        return row;
+        return this.row;
     }
 
     protected Position toPosition() {
-        return new Position(8 - row, column - 'a');
+        return new Position(8 - this.row, this.column - 'a');
     }
 
     protected static ChessPosition fromPosition(Position position) {
@@ -41,7 +41,7 @@ public class ChessPosition {
 
     @Override
     public String toString() {
-        return "" + column + row;
+        return "" + this.column + this.row;
     }
     
     

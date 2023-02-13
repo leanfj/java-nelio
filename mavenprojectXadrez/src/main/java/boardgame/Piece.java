@@ -21,17 +21,17 @@ public abstract class Piece {
     }
 
     protected Board getBoard() {
-        return board;
+        return this.board;
     }
     
     public abstract boolean[][] possibleMoves();
     
     public boolean possibleMove(Position position) {
-        return possibleMoves()[position.getRow()][position.getColumn()];
+        return this.possibleMoves()[position.getRow()][position.getColumn()];
     }
     
     public boolean isTherAnyPossibleMove() {
-        boolean mat[][] = possibleMoves();
+        boolean mat[][] = this.possibleMoves();
         
         for(int i = 0; i < mat.length; i++) {
             for(int j = 0; j < mat.length; j++) {

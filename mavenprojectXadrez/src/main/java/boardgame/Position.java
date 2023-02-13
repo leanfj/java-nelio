@@ -18,7 +18,7 @@ public class Position {
     }
 
     public int getRow() {
-        return row;
+        return this.row;
     }
 
     public void setRow(int row) {
@@ -26,7 +26,7 @@ public class Position {
     }
 
     public int getColumn() {
-        return column;
+        return this.column;
     }
 
     public void setColumn(int column) {
@@ -35,7 +35,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return row + " , " + column;
+        return this.row + " , " + this.column;
     }
     
     public void setValues(int row, int column){

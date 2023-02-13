@@ -23,20 +23,20 @@ public abstract class ChessPiece extends Piece {
     }
 
     public Color getColor() {
-        return color;
+        return this.color;
     }
 
     public char getCode() {
-        return code;
+        return this.code;
     }
 
     @Override
     public String toString() {
-        return "" + code;
+        return "" + this.code;
     }
     
     protected boolean isThereOpponentePiece(Position position) {
-        ChessPiece piece = (ChessPiece) getBoard().piece(position);
+        ChessPiece piece = (ChessPiece) this.getBoard().piece(position);
         return piece != null && piece.getColor() != this.color;
         
         

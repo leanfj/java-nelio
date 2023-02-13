@@ -24,44 +24,51 @@ public class ChessMatch {
     }
 
     public ChessPiece[][] getPieces() {
-        ChessPiece[][] mat = new ChessPiece[board.getRows()][board.getColumns()];
+        ChessPiece[][] mat = new ChessPiece[this.board.getRows()][this.board.getColumns()];
 
-        for (int i = 0; i < board.getRows(); i++) {
-            for (int j = 0; j < board.getColumns(); j++) {
-                mat[i][j] = (ChessPiece) board.piece(i, j);
+        for (int i = 0; i < this.board.getRows(); i++) {
+            for (int j = 0; j < this.board.getColumns(); j++) {
+                mat[i][j] = (ChessPiece) this.board.piece(i, j);
             }
         }
 
         return mat;
     }
 
+    public boolean[][] possibleMoves(ChessPosition sourcePosition) {
+        Position position = sourcePosition.toPosition();
+        this.validateSourcePosition(position);
+        return board.piece(position).possibleMoves();
+        
+    }
+    
     public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
-        validateSourcePosition(source);
-        validateTargetPosition(source, target);
+        this.validateSourcePosition(source);
+        this.validateTargetPosition(source, target);
         Piece capturedPiece = makeMove(source, target);
         return (ChessPiece)capturedPiece;
     }
 
     private void placeNewPiece(char column, int row, ChessPiece piece) {
-        board.placePiece(piece, new ChessPosition(column, row).toPosition());
+        this.board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
 
     private void initialSetup() {
-        placeNewPiece('c', 1, new Rook(board, Color.WHITE, 'R'));
-        placeNewPiece('c', 2, new Rook(board, Color.WHITE, 'R'));
-        placeNewPiece('d', 2, new Rook(board, Color.WHITE, 'R'));
-        placeNewPiece('e', 2, new Rook(board, Color.WHITE, 'R'));
-        placeNewPiece('e', 1, new Rook(board, Color.WHITE, 'R'));
-        placeNewPiece('d', 1, new King(board, Color.WHITE, 'K'));
+        this.placeNewPiece('c', 1, new Rook(board, Color.WHITE, 'R'));
+        this.placeNewPiece('c', 2, new Rook(board, Color.WHITE, 'R'));
+        this.placeNewPiece('d', 2, new Rook(board, Color.WHITE, 'R'));
+        this.placeNewPiece('e', 2, new Rook(board, Color.WHITE, 'R'));
+        this.placeNewPiece('e', 1, new Rook(board, Color.WHITE, 'R'));
+        this.placeNewPiece('d', 1, new King(board, Color.WHITE, 'K'));
 
-        placeNewPiece('c', 7, new Rook(board, Color.BLACK, 'R'));
-        placeNewPiece('c', 8, new Rook(board, Color.BLACK, 'R'));
-        placeNewPiece('d', 7, new Rook(board, Color.BLACK, 'R'));
-        placeNewPiece('e', 7, new Rook(board, Color.BLACK, 'R'));
-        placeNewPiece('e', 8, new Rook(board, Color.BLACK, 'R'));
-        placeNewPiece('d', 8, new King(board, Color.BLACK, 'K'));
+        this.placeNewPiece('c', 7, new Rook(board, Color.BLACK, 'R'));
+        this.placeNewPiece('c', 8, new Rook(board, Color.BLACK, 'R'));
+        this.placeNewPiece('d', 7, new Rook(board, Color.BLACK, 'R'));
+        this.placeNewPiece('e', 7, new Rook(board, Color.BLACK, 'R'));
+        this.placeNewPiece('e', 8, new Rook(board, Color.BLACK, 'R'));
+        this.placeNewPiece('d', 8, new King(board, Color.BLACK, 'K'));
     }
 
     private void validateSourcePosition(Position position) {
@@ -74,14 +81,14 @@ public class ChessMatch {
     }
 
     private Piece makeMove(Position source, Position target) {
-        Piece p = board.removePiece(source);
-        Piece capturedPiece = board.removePiece(target);
-        board.placePiece(p, target);
+        Piece p = this.board.removePiece(source);
+        Piece capturedPiece = this.board.removePiece(target);
+        this.board.placePiece(p, target);
         return capturedPiece;
     }
     
     private void validateTargetPosition(Position source, Position target) {
-        if(!board.piece(source).possibleMove(target)){
+        if(!this.board.piece(source).possibleMove(target)){
             throw new ChessException("The chose piece can't move to target position");
         }
     }
