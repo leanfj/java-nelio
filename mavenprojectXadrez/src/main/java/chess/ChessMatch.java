@@ -8,6 +8,7 @@ import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
 import chess.pieces.King;
+import chess.pieces.Pawn;
 import chess.pieces.Rook;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,19 +128,30 @@ public class ChessMatch {
     }
 
     private void initialSetup() {
-        this.placeNewPiece('c', 1, new Rook(this.board, Color.WHITE, 'R'));
-        this.placeNewPiece('c', 2, new Rook(this.board, Color.WHITE, 'R'));
-        this.placeNewPiece('d', 2, new Rook(this.board, Color.WHITE, 'R'));
-        this.placeNewPiece('e', 2, new Rook(this.board, Color.WHITE, 'R'));
-        this.placeNewPiece('e', 1, new Rook(this.board, Color.WHITE, 'R'));
-        this.placeNewPiece('d', 1, new King(this.board, Color.WHITE, 'K'));
+        this.placeNewPiece('a', 1, new Rook(this.board, Color.WHITE, '\u2656'));
+        this.placeNewPiece('h', 1, new Rook(this.board, Color.WHITE, '\u2656'));
+        this.placeNewPiece('e', 1, new King(this.board, Color.WHITE, '\u2654'));
+        this.placeNewPiece('a', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
+        this.placeNewPiece('b', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
+        this.placeNewPiece('c', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
+        this.placeNewPiece('d', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
+        this.placeNewPiece('e', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
+        this.placeNewPiece('f', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
+        this.placeNewPiece('g', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
+        this.placeNewPiece('h', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
 
-        this.placeNewPiece('c', 7, new Rook(this.board, Color.BLACK, 'R'));
-        this.placeNewPiece('c', 8, new Rook(this.board, Color.BLACK, 'R'));
-        this.placeNewPiece('d', 7, new Rook(this.board, Color.BLACK, 'R'));
-        this.placeNewPiece('e', 7, new Rook(this.board, Color.BLACK, 'R'));
-        this.placeNewPiece('e', 8, new Rook(this.board, Color.BLACK, 'R'));
-        this.placeNewPiece('d', 8, new King(this.board, Color.BLACK, 'K'));
+        this.placeNewPiece('a', 8, new Rook(this.board, Color.BLACK, '\u265C'));
+        this.placeNewPiece('h', 8, new Rook(this.board, Color.BLACK, '\u265C'));
+        this.placeNewPiece('e', 8, new King(this.board, Color.BLACK, '\u265A'));
+        this.placeNewPiece('a', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
+        this.placeNewPiece('b', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
+        this.placeNewPiece('c', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
+        this.placeNewPiece('d', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
+        this.placeNewPiece('e', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
+        this.placeNewPiece('f', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
+        this.placeNewPiece('g', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
+        this.placeNewPiece('h', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
+
     }
 
     private void validateSourcePosition(Position position) {
@@ -155,7 +167,7 @@ public class ChessMatch {
     }
 
     private Piece makeMove(Position source, Position target) {
-        ChessPiece p = (ChessPiece)this.board.removePiece(source);
+        ChessPiece p = (ChessPiece) this.board.removePiece(source);
         p.increaseMoveCount();
         Piece capturedPiece = this.board.removePiece(target);
 
@@ -182,7 +194,7 @@ public class ChessMatch {
     }
 
     public void undoMove(Position source, Position target, Piece capturedPiece) {
-        ChessPiece p = (ChessPiece)this.board.removePiece(target);
+        ChessPiece p = (ChessPiece) this.board.removePiece(target);
         p.decreaseMoveCount();
         this.board.placePiece(p, source);
 
