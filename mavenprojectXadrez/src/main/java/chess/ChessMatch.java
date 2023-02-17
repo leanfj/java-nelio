@@ -11,6 +11,7 @@ import chess.pieces.Bishop;
 import chess.pieces.King;
 import chess.pieces.Kinght;
 import chess.pieces.Pawn;
+import chess.pieces.Queen;
 import chess.pieces.Rook;
 import java.util.ArrayList;
 import java.util.List;
@@ -131,13 +132,14 @@ public class ChessMatch {
 
     private void initialSetup() {
         this.placeNewPiece('a', 1, new Rook(this.board, Color.WHITE, '\u2656'));
-        this.placeNewPiece('h', 1, new Rook(this.board, Color.WHITE, '\u2656'));
-        this.placeNewPiece('c', 1, new Bishop(this.board, Color.WHITE, '\u2657'));
-        this.placeNewPiece('f', 1, new Bishop(this.board, Color.WHITE, '\u2657'));
         this.placeNewPiece('b', 1, new Kinght(this.board, Color.WHITE, '\u2658'));
-        this.placeNewPiece('g', 1, new Kinght(this.board, Color.WHITE, '\u2658'));
-
+        this.placeNewPiece('c', 1, new Bishop(this.board, Color.WHITE, '\u2657'));
+        this.placeNewPiece('d', 1, new Queen(this.board, Color.WHITE, '\u2655'));
         this.placeNewPiece('e', 1, new King(this.board, Color.WHITE, '\u2654'));
+        this.placeNewPiece('f', 1, new Bishop(this.board, Color.WHITE, '\u2657'));
+        this.placeNewPiece('g', 1, new Kinght(this.board, Color.WHITE, '\u2658'));
+        this.placeNewPiece('h', 1, new Rook(this.board, Color.WHITE, '\u2656'));
+        
         this.placeNewPiece('a', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
         this.placeNewPiece('b', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
         this.placeNewPiece('c', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
@@ -148,13 +150,14 @@ public class ChessMatch {
         this.placeNewPiece('h', 2, new Pawn(this.board, Color.WHITE, '\u2659'));
 
         this.placeNewPiece('a', 8, new Rook(this.board, Color.BLACK, '\u265C'));
-        this.placeNewPiece('h', 8, new Rook(this.board, Color.BLACK, '\u265C'));
-        this.placeNewPiece('c', 8, new Bishop(this.board, Color.BLACK, '\u265D'));
-        this.placeNewPiece('f', 8, new Bishop(this.board, Color.BLACK, '\u265D'));
         this.placeNewPiece('b', 8, new Kinght(this.board, Color.BLACK, '\u265E'));
-        this.placeNewPiece('g', 8, new Kinght(this.board, Color.BLACK, '\u265E'));
-
+        this.placeNewPiece('c', 8, new Bishop(this.board, Color.BLACK, '\u265D'));
+        this.placeNewPiece('d', 8, new Queen(this.board, Color.BLACK, '\u265B'));
         this.placeNewPiece('e', 8, new King(this.board, Color.BLACK, '\u265A'));
+        this.placeNewPiece('f', 8, new Bishop(this.board, Color.BLACK, '\u265D'));
+        this.placeNewPiece('g', 8, new Kinght(this.board, Color.BLACK, '\u265E'));
+        this.placeNewPiece('h', 8, new Rook(this.board, Color.BLACK, '\u265C'));
+        
         this.placeNewPiece('a', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
         this.placeNewPiece('b', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
         this.placeNewPiece('c', 7, new Pawn(this.board, Color.BLACK, '\u265F'));
