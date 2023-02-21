@@ -48,9 +48,15 @@ public class MavenprojectXadrez {
 
                 if (chessMatch.getPromoted() != null) {
                     System.out.println("Enter peice for promotion (B/N/R/Q)");
-                    
+
                     String type = scanner.nextLine();
-                    
+
+                    while (!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
+                        System.out.println("Invalid Value! Enter peice for promotion (B/N/R/Q)");
+
+                        type = scanner.nextLine();
+                    }
+
                     chessMatch.replacePromotedPiece(type);
 
                 }
